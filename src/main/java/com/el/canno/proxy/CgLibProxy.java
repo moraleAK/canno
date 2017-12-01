@@ -18,9 +18,9 @@ public class CgLibProxy implements MethodInterceptor {
         this.target = target;
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(this.target.getClass());
-        // 回调方法
+        // set callback method
         enhancer.setCallback(this);
-        // 创建代理对象
+        // create proxy object
         return (T) enhancer.create();
     }
     @Override
