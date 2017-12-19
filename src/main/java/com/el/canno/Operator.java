@@ -1,5 +1,7 @@
 package com.el.canno;
 
+import sun.nio.ch.ThreadPool;
+
 /**
  * User Canno
  * Date 2017/12/1
@@ -23,5 +25,27 @@ public class Operator {
         System.out.println(~0);
         System.out.println(~(-1));
         System.out.println(~(-2));
+    }
+
+
+    /**
+     * 2^(x -1) < n  < 2^x
+     * print 2^x - 1
+     * @param n
+     * @return
+     */
+    public int get2Int(int n) {
+        System.out.println(n);
+        n |= n >>> 1;
+        System.out.println(n);
+        n |= n >>> 2;
+        System.out.println(n);
+        n |= n >>> 4;
+        System.out.println(n);
+        n |= n >>> 8;
+        System.out.println(n);
+        n |= n >>> 16;
+        System.out.println(n);
+        return n + 1;
     }
 }

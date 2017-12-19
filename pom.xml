@@ -17,6 +17,15 @@
   </dependencies>-->
 
   <!-- Inherit defaults from Spring Boot -->
+  <properties>
+    <spring.version>4.0.4.RELEASE</spring.version>
+    <mybatis.version>3.2.1</mybatis.version>
+    <apache.poi.version>3.11-beta2</apache.poi.version>
+    <hibernate.entitymanager.version>5.1.0.Final</hibernate.entitymanager.version>
+    <hibernate.jpa.2.0.api.version>1.0.1.Final</hibernate.jpa.2.0.api.version>
+    <c3p0.version>0.9.1.2</c3p0.version>
+    <jackson.version>2.8.3</jackson.version>
+  </properties>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -28,6 +37,21 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk15on-158</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcpkix-jdk15on-158</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${spring.version}</version>
     </dependency>
   </dependencies>
 
