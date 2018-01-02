@@ -7,6 +7,7 @@ import java.util.Random;
  */
 public class GenerateStringUtils {
     private static String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    private static String HEX_STR = "abcdef0123456789";
     private static String flowNm = "0123456789";
 
     public static String getRandomString(int length) {
@@ -23,6 +24,16 @@ public class GenerateStringUtils {
         Random random = new Random();
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < length; i++) {
+            int number = random.nextInt(10);
+            sb.append(flowNm.charAt(number));
+        }
+        return sb.toString();
+    }
+
+    public static String getHEX32(){
+        Random random = new Random();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < 32; i++) {
             int number = random.nextInt(10);
             sb.append(flowNm.charAt(number));
         }

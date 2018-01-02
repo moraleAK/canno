@@ -1,6 +1,6 @@
 package com.el.canno.common.encrypt;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+//import com.sun.org.apache.xml.internal.security.utils.Base64;
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DERBitString;
@@ -8,6 +8,7 @@ import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Base64Utils;
+//import org.springframework.util.Base64Utils;
 
 import javax.crypto.Cipher;
 import java.io.*;
@@ -105,7 +106,7 @@ public class RSAUtils {
     }
 
     public  String getSign(byte[] content) throws Exception {
-        return new String(Base64.encode(sign(content)).toString());
+        return new String(Base64Utils.encode(sign(content)).toString());
     }
 
     /**
@@ -153,7 +154,7 @@ public class RSAUtils {
     }
 
     public PrivateKey createPrivateKey(String privateKeyStr) throws Exception {
-        byte[] buffer = Base64.decode(privateKeyStr.getBytes());
+        byte[] buffer = Base64Utils.decode(privateKeyStr.getBytes());
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(buffer);
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         return keyFactory.generatePrivate(keySpec);
