@@ -77,9 +77,31 @@ public class QRCodeUtils {
     }
 
     public static void main(String[] args) {
-        String content = "weixin://wxpay/bizpayurl?pr=dV8oozg";
+       // String content = "weixin://wxpay/bizpayurl?pr=dV8oozg";
+        String content =
+                "                   _ooOoo_\n" +
+                "                  o8888888o\n" +
+                "                  88\" . \"88\n" +
+                "                  (| -_- |)\n" +
+                "                  O\\  =  /O\n" +
+                "               ____/`---'\\____\n" +
+                "             .'  \\\\|     |//  `.\n" +
+                "            /  \\\\|||  :  |||//  \\\n" +
+                "           /  _||||| -:- |||||-  \\\n" +
+                "           |   | \\\\\\  -  /// |   |\n" +
+                "           | \\_|  ''\\---/''  |   |\n" +
+                "           \\  .-\\__  `-`  ___/-. /\n" +
+                "         ___`. .'  /--.--\\  `. . __\n" +
+                "      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".\n" +
+                "     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |\n" +
+                "     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /\n" +
+                "======`-.____`-.___\\_____/___.-`____.-'======\n" +
+                "                   `=---='\n" +
+                "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n" +
+                "         佛祖保佑       永无BUG";
+        String ss = "复制整段信息，打开天猫APP，即可查看此商品:【CandyMoyo护甲油营养油美甲透明无毒持久防水 指甲油底油亮油套装】(未安装App点这里：http://zmnxbc.com/s/FYrJc?tm=20aefc )喵口令";
         String filePath = "d:/2017.png";
-        QRCodeEncode(content, filePath);
+        QRCodeEncode(ss, filePath);
         QRCodeDecode(filePath);
     }
 }
