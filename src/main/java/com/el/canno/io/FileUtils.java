@@ -1,4 +1,4 @@
-package com.el.canno.stream;
+package com.el.canno.io;
 
 import org.springframework.util.StringUtils;
 
@@ -96,7 +96,6 @@ public class FileUtils {
 
         ZipOutputStream zos = new ZipOutputStream(cos);
         ZipEntry zipEntry = new ZipEntry(new File(filePath).getName());
-        zipEntry.setMethod(ZipEntry.DEFLATED);
 
         zos.putNextEntry(zipEntry);
 
@@ -107,6 +106,7 @@ public class FileUtils {
         while ((count = bis.read(data, 0, bufferSize)) != -1) {
             zos.write(data, 0, count);
         }
+     //   zipEntry.setMethod(ZipEntry.STORED);
         bis.close();
         zos.closeEntry();
         zos.close();
@@ -126,7 +126,7 @@ public class FileUtils {
         ZipInputStream zipInputStream = new ZipInputStream(ins);
         ZipEntry zipEntry = zipInputStream.getNextEntry();
         // 表明是解压
-        zipEntry.setMethod(ZipEntry.STORED);
+       // zipEntry.setMethod(ZipEntry.STORED);
         File file = new File(newFilePath + "/" + zipEntry.getName());
 
         file.createNewFile();
@@ -164,9 +164,9 @@ public class FileUtils {
     }
 
     public static void main(String[] args) throws IOException {
-
-        // fileUnzip("d:/test/2017.zip","d:/zz");
-        fileCopy("d:/zz/2017.txt", "");
+         //fileZip("d:/test/2017.txt", "d:/test/2017.zip");
+        fileUnzip("d:/test/2017.zip","d:/test");
+       // fileCopy("d:/zz/2017.txt", "");
 
 
     }

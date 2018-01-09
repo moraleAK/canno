@@ -1,4 +1,4 @@
-package com.el.canno.stream;
+package com.el.canno.io;
 
 
 import java.io.BufferedInputStream;
@@ -267,7 +267,7 @@ public class ZipUtils {
 
         ZipEntry entry = null;
         while ((entry = zis.getNextEntry()) != null) {
-
+           // entry.setMethod(ZipEntry.STORED);
             // 文件
             String dir = destFile.getPath() + File.separator + entry.getName();
 
@@ -279,7 +279,7 @@ public class ZipUtils {
             if (entry.isDirectory()) {
                 dirFile.mkdirs();
             } else {
-                decompressFile(dirFile, zis);
+                 decompressFile(dirFile, zis);
             }
 
             zis.closeEntry();
@@ -319,7 +319,7 @@ public class ZipUtils {
      */
     private static void decompressFile(File destFile, ZipInputStream zis)
             throws Exception {
-
+        // zis.getNextEntry().setMethod(ZipEntry.STORED);
         BufferedOutputStream bos = new BufferedOutputStream(
                 new FileOutputStream(destFile));
 
