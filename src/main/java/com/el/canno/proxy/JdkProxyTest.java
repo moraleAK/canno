@@ -20,6 +20,19 @@ public class JdkProxyTest {
         Cat catProxy = invocationHandler.getProxy(Cat.class);
         catProxy.go();
         cat.run();*/
-        SpringApplication.run(JdkProxyTest.class, args);
+      //  SpringApplication.run(JdkProxyTest.class, args);
+        System.out.println(getTotal(1, 1, 2, 9));
+    }
+
+    public static int getTotal(int startCount, int salt,int multiple,  int round){
+        int total = 0;
+        startCount = (startCount + salt) * multiple;
+        if(round != 0) {
+            round --;
+            startCount = getTotal(startCount, salt, multiple, round);
+        }
+        total += startCount;
+        return total;
+
     }
 }

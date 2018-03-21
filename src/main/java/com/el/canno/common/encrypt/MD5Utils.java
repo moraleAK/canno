@@ -29,6 +29,18 @@ public class MD5Utils {
         return result;
     }
 
+
+    public static String md5(byte[] bytes) {
+        String result = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            result = byte2hex(md.digest(bytes));
+        } catch (Exception e) {
+            throw new RuntimeException("sign error !");
+        }
+        return result;
+    }
+
     /**
      * 二行制转字符串
      *

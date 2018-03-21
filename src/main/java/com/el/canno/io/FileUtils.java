@@ -106,7 +106,7 @@ public class FileUtils {
         while ((count = bis.read(data, 0, bufferSize)) != -1) {
             zos.write(data, 0, count);
         }
-     //   zipEntry.setMethod(ZipEntry.STORED);
+        //   zipEntry.setMethod(ZipEntry.STORED);
         bis.close();
         zos.closeEntry();
         zos.close();
@@ -126,7 +126,7 @@ public class FileUtils {
         ZipInputStream zipInputStream = new ZipInputStream(ins);
         ZipEntry zipEntry = zipInputStream.getNextEntry();
         // 表明是解压
-       // zipEntry.setMethod(ZipEntry.STORED);
+        // zipEntry.setMethod(ZipEntry.STORED);
         File file = new File(newFilePath + "/" + zipEntry.getName());
 
         file.createNewFile();
@@ -164,10 +164,41 @@ public class FileUtils {
     }
 
     public static void main(String[] args) throws IOException {
-         //fileZip("d:/test/2017.txt", "d:/test/2017.zip");
-        fileUnzip("d:/test/2017.zip","d:/test");
-       // fileCopy("d:/zz/2017.txt", "");
+//        System.out.println((-1) | 256);
+//        System.out.println(255 & 255);
+//        int r = 0;
+//        int c1 = 0;
+//        int c2 = 0;
+//        long t1 = System.currentTimeMillis();
+//        for (; ; ) {
+//            r = 99999999%256;
+//            c1++;
+//            if (c1 > 2 << 30)
+//                break;
+//        }
+//
+//        long t2 = System.currentTimeMillis();
+//        System.out.println(t2 - t1);
+//        for (; ; ) {
+//            r = 99999999 & 256;
+//            c2++;
+//            if (c2 > 2 << 30)
+//                break;
+//        }
+//        System.out.println(c1 );
+//        long t3 = System.currentTimeMillis();
+//        System.out.println(t3 - t2);
 
+//
+//        System.out.println("_______________________________");
+//        System.out.println((((2551 & 256) == 256) ? 2555 & 256 : 2555 & 256));
+//        System.out.println((2551 & 255) >>>8);
+//        System.out.println((2551 % 255));
+//        System.out.println(2^1);
 
+        System.out.println(Integer.toBinaryString(500 & 255));
+        System.out.println(Integer.toBinaryString(500 % 256));
+        System.out.println(Integer.toBinaryString(500));
+        System.out.println(Integer.toBinaryString(255));
     }
 }
