@@ -19,10 +19,31 @@ public class MD5Utils {
      * @return
      */
     public static String signature(String original) {
+      return signature(original, "utf-8");
+    }
+
+    /**
+     * 生成有效签名
+     *
+     * @param original
+     * @return
+     */
+    public static String signature(String original, String charsetName) {
         String result = null;
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            result = byte2hex(md.digest(original.toString().getBytes("utf-8")));
+            result = byte2hex(md.digest(original.toString().getBytes(charsetName)));
+        } catch (Exception e) {
+            throw new RuntimeException("sign error !");
+        }
+        return result;
+    }
+
+    public static String signature1(String original) {
+        String result = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            result = byte2hex(md.digest(original.toString().getBytes()));
         } catch (Exception e) {
             throw new RuntimeException("sign error !");
         }

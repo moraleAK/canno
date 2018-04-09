@@ -10,7 +10,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Date 2018/3/28
  * Time 9:39
  */
-public class Producer implements Runnable{
+public class Producer implements Runnable {
+
+    private volatile boolean isRunning = true;
+    private BlockingQueue queue;
+    private static AtomicInteger count = new AtomicInteger();
+    private static final int DEFAULT_RANGE_FOR_SLEEP = 1000;
+
     public Producer(BlockingQueue queue) {
         this.queue = queue;
     }
@@ -42,9 +48,4 @@ public class Producer implements Runnable{
     public void stop() {
         isRunning = false;
     }
-
-    private volatile boolean      isRunning               = true;
-    private BlockingQueue queue;
-    private static AtomicInteger  count                   = new AtomicInteger();
-    private static final int      DEFAULT_RANGE_FOR_SLEEP = 1000;
 }
