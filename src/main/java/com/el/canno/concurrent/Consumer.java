@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
  * Time 9:40
  */
 public class Consumer implements Runnable {
+    private volatile boolean isRunning = true;
     private BlockingQueue<String> queue;
     private static final int      DEFAULT_RANGE_FOR_SLEEP = 1000;
 
@@ -20,7 +21,6 @@ public class Consumer implements Runnable {
     public void run() {
         System.out.println("启动消费者线程！");
         Random r = new Random();
-        boolean isRunning = true;
         try {
             while (isRunning) {
                 System.out.println("正从队列获取数据...");
@@ -40,5 +40,9 @@ public class Consumer implements Runnable {
         } finally {
             System.out.println("退出消费者线程！");
         }
+    }
+
+    public void stop(){
+        this.isRunning = false;
     }
 }

@@ -2,6 +2,8 @@ package com.el.canno.test;
 
 import com.el.canno.concurrent.Consumer;
 import com.el.canno.concurrent.Producer;
+import com.el.canno.concurrent.TaskExecutors;
+import org.apache.poi.ss.usermodel.DataFormat;
 import org.junit.Test;
 
 import java.util.concurrent.BlockingQueue;
@@ -19,7 +21,7 @@ public class ConcurrentTest {
     @Test
     public void test() throws InterruptedException {
             // 声明一个容量为10的缓存队列
-            BlockingQueue<String> queue = new LinkedBlockingQueue<String>(3);
+            BlockingQueue<String> queue = new LinkedBlockingQueue<String>(3000);
 
             Producer producer1 = new Producer(queue);
             Producer producer2 = new Producer(queue);
@@ -41,7 +43,7 @@ public class ConcurrentTest {
 //            service.execute(consumer4);
 
             // 执行10s
-            Thread.sleep(10 * 1000);
+            Thread.sleep(100 * 1000);
             producer1.stop();
             producer2.stop();
             producer3.stop();
@@ -50,4 +52,8 @@ public class ConcurrentTest {
             // 退出Executor
             service.shutdown();
     }
+
+        public static void main(String[] args) throws InterruptedException {
+            TaskExecutors.execute(200, 10, 2, 30 * 1000, 60 * 1000);
+        }
 }
